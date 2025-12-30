@@ -1,0 +1,60 @@
+{
+   "name": "shorebase-backend",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "type": "module",
+   "scripts": {
+      "build": "tsc",
+      "start": "node --loader ts-node/esm src/server.ts",
+      "dev": "nodemon --watch src --ext mts,ts --exec tsx src/server.ts",
+      "lint": "eslint 'src/**/*.ts'",
+      "typeorm": "typeorm-ts-node-esm entity:create",
+      "typeorm:entity:create": "typeorm-ts-node-esm entity:create",
+      "typeorm:migration:create": "typeorm-ts-node-esm migration:create",
+      "typeorm:migration:generate": "typeorm-ts-node-esm migration:generate -d src/dataSource.ts",
+      "typeorm:migration:migrate": "typeorm-ts-node-esm migration:run -d src/dataSource.ts",
+      "typeorm:migration:revert": "typeorm-ts-node-esm migration:revert -d src/dataSource.ts",
+      "typeorm:migration:drop": "typeorm-ts-node-esm schema:drop -d src/dataSource.ts"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/barokahmarineconsulting/shorebase-backend.git"
+   },
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/barokahmarineconsulting/shorebase-backend/issues"
+   },
+   "homepage": "https://github.com/barokahmarineconsulting/shorebase-backend#readme",
+   "dependencies": {
+      "connect-sqlite3": "^0.9.16",
+      "cors": "^2.8.5",
+      "dotenv": "^17.0.0",
+      "express": "^5.1.0",
+      "express-session": "^1.18.1",
+      "keycloak-connect": "^26.1.1",
+      "luxon": "^3.7.1",
+      "mqtt": "^5.13.3",
+      "mysql2": "^3.14.0",
+      "pg": "^8.14.1",
+      "reflect-metadata": "^0.2.2",
+      "roman-numerals": "^0.3.2",
+      "tsx": "^4.20.3",
+      "typeorm": "0.3.25"
+   },
+   "devDependencies": {
+      "@types/cors": "^2.8.19",
+      "@types/express": "^5.0.3",
+      "@types/express-session": "^1.18.2",
+      "@types/luxon": "^3.7.1",
+      "@types/node": "^24.0.10",
+      "@types/roman-numerals": "^0.3.2",
+      "eslint": "^9.30.0",
+      "nodemon": "^3.1.10",
+      "prettier": "^3.6.2",
+      "ts-node": "^10.9.2",
+      "tsconfig-paths": "^4.2.0",
+      "typescript": "^5.8.3"
+   }
+}

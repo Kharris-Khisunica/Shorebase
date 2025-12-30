@@ -1,0 +1,19 @@
+{
+   "compilerOptions": {
+      "lib": [
+         "ESNext"
+      ],
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "outDir": "./dist",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": true,
+      "esModuleInterop": true
+   },
+   "ts-node": {
+    "esm": true
+  }
+}

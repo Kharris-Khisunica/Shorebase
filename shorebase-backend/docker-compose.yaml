@@ -1,0 +1,42 @@
+version: "1.0.0"
+services:
+  # mqtt5 eclipse-mosquitto
+  mqtt5:
+    image: eclipse-mosquitto
+    container_name: shorebase_mqtt5
+    ports:
+      - "1883:1883" #default mqtt port
+      - "9001:9001" #default mqtt port for websockets
+    volumes:
+      - ./mosquitto/config:/mosquitto/config:rw
+      - ./mosquitto/data:/mosquitto/data:rw
+      - ./mosquitto/log:/mosquitto/log:rw
+    restart: unless-stopped
+  # keycloak
+  keycloak:
+    build:
+      context: .
+      dockerfile: keycloak.Dockerfile
+    container_name: shorebase_keycloak
+    ports:
+      - "8080:8080"
+    restart: 'unless-stopped'
+    command: 
+      - "start-dev"
+      - "--spi-events-listener-mqtt-server-uri=tcp://host.docker.internal:1883"
+      - "--spi-events-listener-mqtt-publisher-id=keycloak"
+      - "--spi-events-listener-mqtt-topic=keycloak"
+      - "--spi-events-listener-mqtt-qos=2"
+      - "--spi-events-listener-mqtt-retained=false"
+    env_file:
+      - .env
+
+# volumes for mapping data,config and log
+volumes:
+  config:
+  data:
+  log:
+
+networks:
+  default:
+    name: mqtt5-network

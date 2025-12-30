@@ -1,0 +1,12 @@
+{
+  "realm": "barokah-group",
+  "auth-server-url": "http://localhost:8080/",
+  "ssl-required": "external",
+  "resource": "shorebase-backend",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "**********"
+  },
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
+}

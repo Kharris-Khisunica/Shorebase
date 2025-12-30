@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+@import "vue-select/dist/vue-select.css";
+
+@theme {
+    --color-primary-blue: #155E95;
+    --color-yellow-masbro: #155E95;
+}
+
+:root {
+  --ui-primary: var(--color-primary-blue);
+}
